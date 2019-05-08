@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/utopia-php/registry.svg?branch=master)](https://travis-ci.org/utopia-php/registry)
 ![Total Downloads](https://img.shields.io/packagist/dt/utopia-php/registry.svg)
-![License](https://img.shields.io/github/license/utopia-php/registry.svg)
+[![Chat With Us](https://img.shields.io/gitter/room/utopia-php/community.svg)](https://gitter.im/utopia-php/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Utopia Registry library is simple and lite library for managing dependency management and lazy load initialization of PHP objects or resources. This library is aiming to be as simple and easy to learn and use.
 
