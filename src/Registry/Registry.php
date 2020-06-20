@@ -40,7 +40,7 @@ class Registry {
      */
     public function set(string $name, callable $callback):Registry
     {
-        if(array_key_exists($name, $this->callbacks)) {
+        if(\array_key_exists($name, $this->callbacks)) {
             throw new Exception('Callback with the name "' . $name . '" already exists');
         }
 
@@ -62,8 +62,8 @@ class Registry {
      */
     public function get(string $name, $fresh = false)
     {
-        if(!array_key_exists($name, $this->registry) || $fresh) {
-            if(!array_key_exists($name, $this->callbacks)) {
+        if(!\array_key_exists($name, $this->registry) || $fresh) {
+            if(!\array_key_exists($name, $this->callbacks)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
 
