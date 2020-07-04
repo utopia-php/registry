@@ -58,8 +58,6 @@ $register->get('db');
  */
 $register->get('db', true);
 
-var_dump($register->counter['db']); // Counting number of calls for db service
-var_dump($register->created['db']); // Counter of all db service instances
 ```
 
 ## System Requirements
