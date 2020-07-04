@@ -40,17 +40,11 @@ class RegistryTest extends TestCase
             return new ArrayObject(['test']);
         });
 
-        $this->assertEquals(0, $this->registry->created['array']);
-
         $this->assertCount(1, $this->registry->get('array'));
 
         $this->registry->get('array')[] = 'Hello World';
 
         $this->assertCount(2, $this->registry->get('array'));
-
-        $this->assertEquals(3, $this->registry->counter['array']);
-
-        $this->assertEquals(1, $this->registry->created['array']);
 
         // Fresh Copy
         $this->assertCount(1, $this->registry->get('array', true));
