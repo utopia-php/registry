@@ -7,28 +7,18 @@ use Exception;
 class Registry {
 
     /**
-     * @var array
-     */
-    public $counter = [];
-
-    /**
-     * @var array
-     */
-    public $created = [];
-
-    /**
      * List of all callbacks
      *
      * @var array
      */
-    protected $callbacks = array();
+    protected $callbacks = [];
 
     /**
      * List of all connections
      *
      * @var array
      */
-    protected $registry = array();
+    protected $registry = [];
 
     /**
      * Set a new connection callback
@@ -38,14 +28,11 @@ class Registry {
      * @return $this
      * @throws Exception
      */
-    public function set(string $name, callable $callback):Registry
+    public function set(string $name, callable $callback): self
     {
         if(\array_key_exists($name, $this->callbacks)) {
             throw new Exception('Callback with the name "' . $name . '" already exists');
         }
-
-        $this->counter[$name] = 0;
-        $this->created[$name] = 0;
 
         $this->callbacks[$name] = $callback;
 
@@ -67,12 +54,8 @@ class Registry {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
 
-            $this->created[$name]++;
-
             $this->registry[$name] = $this->callbacks[$name]();
         }
-
-        $this->counter[$name]++;
 
         return $this->registry[$name];
     }
