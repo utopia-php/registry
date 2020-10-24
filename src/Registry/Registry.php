@@ -9,7 +9,7 @@ class Registry {
     /**
      * List of all callbacks
      *
-     * @var array
+     * @var callable[]
      */
     protected $callbacks = [];
 

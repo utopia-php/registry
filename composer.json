@@ -14,10 +14,11 @@
         "psr-4": {"Utopia\\Registry\\": "src/Registry"}
     },
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^9.3",
+        "vimeo/psalm": "4.0.1"
     },
     "minimum-stability": "dev"
 }
