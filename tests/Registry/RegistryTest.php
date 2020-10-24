@@ -24,12 +24,12 @@ class RegistryTest extends TestCase
      */
     protected $registry = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->registry = new Registry();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->registry = null;
     }
