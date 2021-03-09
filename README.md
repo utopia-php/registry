@@ -58,6 +58,11 @@ $register->get('db');
  */
 $register->get('db', true);
 
+/**
+ * Using the context method you can manage multiple instances of the same resources with separated scopes.
+ */
+$register->context('new-set-of-instances');
+
 ```
 
 ## System Requirements
