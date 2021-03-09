@@ -48,5 +48,36 @@ class RegistryTest extends TestCase
 
         // Fresh Copy
         $this->assertCount(1, $this->registry->get('array', true));
+
+        $this->registry->set('time', function () {
+            return microtime();
+        });
+
+        // Test for different contexts
+
+        $timeX = $this->registry->get('time');
+        $timeY = $this->registry->get('time');
+
+        $this->assertEquals($timeX, $timeY);
+        
+        // Test for cached instance
+
+        $timeY = $this->registry->get('time');
+
+        $this->assertEquals($timeX, $timeY);
+
+        // Switch Context
+
+        $this->registry->context('new');
+
+        $timeY = $this->registry->get('time');
+
+        $this->assertNotEquals($timeX, $timeY);
+
+        // Test for cached instance
+
+        $timeY = $this->registry->get('time');
+
+        $this->assertNotEquals($timeX, $timeY);
     }
 }
