@@ -18,7 +18,16 @@ class Registry
      *
      * @var array
      */
-    protected $registry = [];
+    protected $registry = [
+        'default' => [],
+    ];
+
+    /**
+     * Current context
+     *
+     * @var string
+     */
+    protected $context = 'default';
 
     /**
      * Set a new connection callback
@@ -49,14 +58,28 @@ class Registry
      */
     public function get(string $name, $fresh = false)
     {
-        if (!\array_key_exists($name, $this->registry) || $fresh) {
+        if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh) {
             if (!\array_key_exists($name, $this->callbacks)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
-
-            $this->registry[$name] = $this->callbacks[$name]();
+            
+            $this->registry[$this->context][$name] = $this->callbacks[$name]();
         }
+        
+        return $this->registry[$this->context][$name];
+    }
 
-        return $this->registry[$name];
+    /**
+     * Set the current context
+     */
+    public function context(string $name): self
+    {
+        if(!array_key_exists($name, $this->registry)) {
+            $this->registry[$name] = [];
+        }
+        
+        $this->context = $name;
+
+        return $this;
     }
 }
