@@ -14,6 +14,13 @@ class Registry
     protected $callbacks = [];
 
     /**
+     * List of all fresh resources
+     *
+     * @var array
+     */
+    protected $fresh = [];
+
+    /**
      * List of all connections
      *
      * @var array
@@ -34,15 +41,17 @@ class Registry
      *
      * @param string $name
      * @param callable $callback
+     * @param bool $fresh
      * @return $this
      * @throws Exception
      */
-    public function set(string $name, callable $callback): self
+    public function set(string $name, callable $callback, bool $fresh = false): self
     {
         if (\array_key_exists($name, $this->callbacks)) {
             throw new Exception('Callback with the name "' . $name . '" already exists');
         }
 
+        $this->fresh[$name] = $fresh;
         $this->callbacks[$name] = $callback;
 
         return $this;
@@ -58,7 +67,7 @@ class Registry
      */
     public function get(string $name, $fresh = false)
     {
-        if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh) {
+        if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
             if (!\array_key_exists($name, $this->callbacks)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }

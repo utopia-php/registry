@@ -79,5 +79,20 @@ class RegistryTest extends TestCase
         $timeY = $this->registry->get('time');
 
         $this->assertNotEquals($timeX, $timeY);
+
+
+        // Test fresh copies
+
+        $this->registry->set('fresh', function () {
+            return microtime();
+        }, true);
+
+        $copy1 = $this->registry->get('fresh');
+        $copy2 = $this->registry->get('fresh');
+        $copy3 = $this->registry->get('fresh');
+
+        $this->assertNotEquals($copy1, $copy2);
+        $this->assertNotEquals($copy2, $copy3);
+        $this->assertNotEquals($copy1, $copy3);
     }
 }
