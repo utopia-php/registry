@@ -47,8 +47,8 @@ class Registry
      */
     public function set(string $name, callable $callback, bool $fresh = false): self
     {
-        if (\array_key_exists($name, $this->callbacks)) {
-            throw new Exception('Callback with the name "' . $name . '" already exists');
+        if (\array_key_exists($name, $this->registry[$this->context])) {
+            unset($this->registry[$this->context][$name]);
         }
 
         $this->fresh[$name] = $fresh;
