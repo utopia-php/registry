@@ -63,6 +63,16 @@ $register->get('db', true);
  */
 $register->context('new-set-of-instances');
 
+/**
+ * You can use the 3rd parameter `$fresh` to get a new copy of the resource in every get call
+ */
+$register->set('time', function() { // Register DB connection
+    return microtime();
+}, true);
+
+$register->get('time'); // 0.16608900
+$register->get('time'); // 0.16608905
+
 ```
 
 ## System Requirements
