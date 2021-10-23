@@ -76,13 +76,23 @@ This will allow the Utopia-php community to have sufficient discussion about the
 
 This is also important for the Utopia-php lead developers to be able to give technical input and different emphasis regarding the feature design and architecture. Some bigger features might need to go through our [RFC process](https://github.com/appwrite/rfc).
 
+
+## Tutorials
+
+From time to time, our team will add tutorials that will help contributors find their way in the Utopia-php source code. Below is a list of currently available tutorials:
+
+* [Adding Support for a New OAuth2 Provider](./docs/tutorials/add-oauth2-provider.md)
+* [Appwrite Environment Variables](./docs/tutorials/environment-variables.md)
+* [Running in Production](./docs/tutorials/running-in-production.md)
+* [Adding Storage Adapter](./docs/tutorials/add-storage-adapter.md)
+
 ## Other Ways to Help
 
-Pull requests are great, but there are many other areas where you can help Utopia-php.
+Pull requests are great, but there are many other areas where you can help Utopia-php. 
 
 ### Blogging & Speaking
 
-Blogging, speaking about, or creating tutorials about one of Utopia-php’s many features is great way to contribute and help our project grow.
+Blogging, speaking about, or creating tutorials about one of Utopia-php’s many features. Mention [@appwrite_io](https://twitter.com/appwrite_io) on Twitter and/or [email team@appwrite.io](mailto:team@appwrite.io) so we can give pointers and tips and help you spread the word by promoting your content on the different Utopia-php communication channels. Please add your blog posts and videos of talks to our [Awesome Appwrite](https://github.com/appwrite/awesome-appwrite) repo on GitHub.
 
 ### Presenting at Meetups
 
@@ -102,4 +112,4 @@ Submitting documentation updates, enhancements, designs, or bug fixes. Spelling 
 
 ### Helping Someone
 
-Searching for Utopia-php, GitHub or StackOverflow and helping someone else who needs help. You can also help by teaching others how to contribute to Utopia-php's repo!
+Searching for Utopia-php on Discord, GitHub, or StackOverflow and helping someone else who needs help. You can also help by teaching others how to contribute to Utopia PHP's repo!
