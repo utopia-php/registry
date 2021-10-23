@@ -8,13 +8,15 @@ If you are worried or don’t know where to start, check out our next section ex
 
 ## Code of Conduct
 
-Help us keep Utopia-php open and inclusive. Please read and follow our [Code of Conduct](https://github.com/appwrite/appwrite/blob/master/CODE_OF_CONDUCT.md).
+Help us keep Utopia-php open and inclusive. Please read and follow our [Code of Conduct](https://github.com/utopia-php/abuse/blob/master/CODE_OF_CONDUCT.md).
 
 ## Submit a Pull Request 🚀
 
 Branch naming convention is as following
 
-`TYPE-ISSUE_ID-DESCRIPTION`
+```
+TYPE-ISSUE_ID-DESCRIPTION
+```
 
 example:
 
@@ -40,7 +42,7 @@ For the initial start, fork the project and use git clone command to download th
 $ git pull
 ```
 
-2. Create new branch from `master` like: `doc-548-submit-a-pull-request-section-to-contribution-guide`<br/>
+2. Create new branch from `master` like: `doc-548-submit-a-pull-request-section-to-contribution-guide`
 
 ```
 $ git checkout -b [name_of_your_new_branch]
@@ -54,13 +56,15 @@ $ git checkout -b [name_of_your_new_branch]
 $ git push origin [name_of_your_new_branch]
 ```
 
-5. Submit your changes for review
-   If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
-6. Start a Pull Request
-   Now submit the pull request and click on `Create pull request`.
-7. Get a code review approval/reject
-8. After approval, merge your PR
-9. GitHub will automatically delete the branch after the merge is done. (they can still be restored).
+6. Submit your changes for review If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+7. Start a Pull Request Now submit the pull request and click on `Create pull request`.
+
+8. Get a code review approval/reject
+
+9. After approval, merge your PR
+
+10. GitHub will automatically delete the branch after the merge is done. (they can still be restored).
 
 ## Introducing New Features
 
