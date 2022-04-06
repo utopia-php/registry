@@ -11,21 +11,21 @@ class Registry
      *
      * @var callable[]
      */
-    protected $callbacks = [];
+    protected array $callbacks = [];
 
     /**
      * List of all fresh resources
      *
      * @var array
      */
-    protected $fresh = [];
+    protected array $fresh = [];
 
     /**
      * List of all connections
      *
      * @var array
      */
-    protected $registry = [
+    protected array $registry = [
         'default' => [],
     ];
 
@@ -34,7 +34,7 @@ class Registry
      *
      * @var string
      */
-    protected $context = 'default';
+    protected string $context = 'default';
 
     /**
      * Set a new connection callback
@@ -65,17 +65,27 @@ class Registry
      * @return mixed
      * @throws Exception
      */
-    public function get(string $name, $fresh = false)
+    public function get(string $name, bool $fresh = false)
     {
         if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
             if (!\array_key_exists($name, $this->callbacks)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
-            
             $this->registry[$this->context][$name] = $this->callbacks[$name]();
         }
         
         return $this->registry[$this->context][$name];
+    }
+
+    /**
+     * Check if connection exists
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function has(string $name): bool
+    {
+        return \array_key_exists($name, $this->callbacks);
     }
 
     /**
