@@ -62,10 +62,6 @@ class RegistryTest extends TestCase
             return ['test'];
         });
         $this->assertTrue($this->registry->has('item'));
-
-        $this->registry->set('item', static fn() => null);
-
-        $this->assertFalse($this->registry->has('item'));
     }
 
     /**
