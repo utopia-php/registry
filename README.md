@@ -4,9 +4,9 @@
 ![Total Downloads](https://img.shields.io/packagist/dt/utopia-php/registry.svg)
 [![Discord](https://img.shields.io/discord/564160730845151244?label=discord)](https://appwrite.io/discord)
 
-Utopia Registry library is simple and lite library for managing dependency management and lazy load initialization of PHP objects or resources. This library is aiming to be as simple and easy to learn and use.
+Utopia Registry library is a simple and lite library for managing dependency management and lazy load initialization of PHP objects or resources. This library aims to be as simple and easy to learn and use.
 
-Although this library is part of the [Utopia Framework](https://github.com/utopia-php/framework) project it is dependency free and can be used as standalone with any other PHP project or framework.
+Although this library is part of the [Utopia Framework](https://github.com/utopia-php/framework) project, it is dependency free and can be used as a standalone with any other PHP project or framework.
 
 ## Getting Started
 
@@ -86,6 +86,6 @@ Utopia Framework requires PHP 7.4 or later. We recommend using the latest PHP ve
 + [https://twitter.com/eldadfux](https://twitter.com/eldadfux)
 + [https://github.com/eldadfux](https://github.com/eldadfux)
 
-## Copyright and license
+## Copyright and License
 
 The MIT License (MIT) [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
