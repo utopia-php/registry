@@ -4,12 +4,6 @@
     "type": "library",
     "keywords": ["php","framework", "upf", "utopia", "di", "dependency management"],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Eldad Fux",
-            "email": "eldad@appwrite.io"
-        }
-    ],
     "autoload": {
         "psr-4": {"Utopia\\Registry\\": "src/Registry"}
     },
