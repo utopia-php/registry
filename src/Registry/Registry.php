@@ -11,30 +11,30 @@ class Registry
      *
      * @var callable[]
      */
-    protected $callbacks = [];
+    protected array $callbacks = [];
 
     /**
      * List of all fresh resources
      *
-     * @var array
+     * @var bool[]
      */
-    protected $fresh = [];
+    protected array $fresh = [];
 
     /**
      * List of all connections
      *
-     * @var array
+     * @var array<mixed>[]
      */
-    protected $registry = [
+    protected array $registry = [
         'default' => [],
     ];
-
+    
     /**
      * Current context
      *
      * @var string
      */
-    protected $context = 'default';
+    protected string $context = 'default';
 
     /**
      * Set a new connection callback
@@ -58,6 +58,17 @@ class Registry
     }
 
     /**
+     * Check if connection exists
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function has(string $name): bool
+    {
+        return \array_key_exists($name, $this->callbacks);
+    }
+
+    /**
      * If connection has been created returns it, otherwise create and than return it
      *
      * @param string $name
@@ -65,13 +76,12 @@ class Registry
      * @return mixed
      * @throws Exception
      */
-    public function get(string $name, $fresh = false)
+    public function get(string $name, bool $fresh = false)
     {
         if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
-            if (!\array_key_exists($name, $this->callbacks)) {
+            if (!$this->has($name)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
-            
             $this->registry[$this->context][$name] = $this->callbacks[$name]();
         }
         
@@ -83,7 +93,7 @@ class Registry
      */
     public function context(string $name): self
     {
-        if(!array_key_exists($name, $this->registry)) {
+        if (!array_key_exists($name, $this->registry)) {
             $this->registry[$name] = [];
         }
         
