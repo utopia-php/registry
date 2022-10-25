@@ -47,7 +47,8 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSet(): void {
+    public function testSet(): void
+    {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
         });

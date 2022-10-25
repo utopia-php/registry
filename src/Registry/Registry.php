@@ -16,14 +16,14 @@ class Registry
     /**
      * List of all fresh resources
      *
-     * @var bool[]
+     * @var array<bool>
      */
     protected array $fresh = [];
 
     /**
      * List of all connections
      *
-     * @var array<mixed>[]
+     * @var array<mixed>
      */
     protected array $registry = [
         'default' => [],
@@ -42,10 +42,10 @@ class Registry
      * @param string $name
      * @param callable $callback
      * @param bool $fresh
-     * @return $this
+     * @return self
      * @throws Exception
      */
-    public function set(string $name, callable $callback, bool $fresh = false): self
+    public function set(string $name, callable $callback, bool $fresh = false)
     {
         if (\array_key_exists($name, $this->registry[$this->context])) {
             unset($this->registry[$this->context][$name]);
@@ -63,7 +63,7 @@ class Registry
      * @param string $name
      * @return bool
      */
-    public function has(string $name): bool
+    public function has(string $name)
     {
         return \array_key_exists($name, $this->callbacks);
     }
@@ -90,8 +90,11 @@ class Registry
 
     /**
      * Set the current context
+     * 
+     * @param string $name
+     * @return self
      */
-    public function context(string $name): self
+    public function context(string $name)
     {
         if (!array_key_exists($name, $this->registry)) {
             $this->registry[$name] = [];
