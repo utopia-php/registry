@@ -65,13 +65,13 @@ class Registry
      * @return mixed
      * @throws Exception
      */
-    public function get(string $name, bool $fresh = false)
+    public function get(string $name, bool $fresh = false, array $args = [])
     {
         if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
             if (!\array_key_exists($name, $this->callbacks)) {
                 throw new Exception('No callback named "' . $name . '" found when trying to create connection');
             }
-            $this->registry[$this->context][$name] = $this->callbacks[$name]();
+            $this->registry[$this->context][$name] = $this->callbacks[$name](...$args);
         }
         
         return $this->registry[$this->context][$name];

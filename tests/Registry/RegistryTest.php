@@ -43,6 +43,13 @@ class RegistryTest extends TestCase
         $this->assertCount(2, $this->registry->get('array'));
     }
 
+    public function testGetWithParams() {
+        $this->registry->set('param', function ($param) {
+            return $param;
+        });
+        $this->assertEquals('Hello World', $this->registry->get('param', false, ['Hello World']));
+    }
+
     /**
      * @throws \Exception
      */
