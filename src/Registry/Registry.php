@@ -39,10 +39,11 @@ class Registry
     /**
      * Set a new connection callback
      *
-     * @param string $name
-     * @param callable $callback
-     * @param bool $fresh
+     * @param  string  $name
+     * @param  callable  $callback
+     * @param  bool  $fresh
      * @return $this
+     *
      * @throws Exception
      */
     public function set(string $name, callable $callback, bool $fresh = false): self
@@ -60,27 +61,28 @@ class Registry
     /**
      * If connection has been created returns it, otherwise create and than return it
      *
-     * @param string $name
-     * @param bool $fresh
+     * @param  string  $name
+     * @param  bool  $fresh
      * @return mixed
+     *
      * @throws Exception
      */
     public function get(string $name, bool $fresh = false)
     {
-        if (!\array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
-            if (!\array_key_exists($name, $this->callbacks)) {
-                throw new Exception('No callback named "' . $name . '" found when trying to create connection');
+        if (! \array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
+            if (! \array_key_exists($name, $this->callbacks)) {
+                throw new Exception('No callback named "'.$name.'" found when trying to create connection');
             }
             $this->registry[$this->context][$name] = $this->callbacks[$name]();
         }
-        
+
         return $this->registry[$this->context][$name];
     }
 
     /**
      * Check if connection exists
      *
-     * @param string $name
+     * @param  string  $name
      * @return bool
      */
     public function has(string $name): bool
@@ -93,10 +95,10 @@ class Registry
      */
     public function context(string $name): self
     {
-        if(!array_key_exists($name, $this->registry)) {
+        if (! array_key_exists($name, $this->registry)) {
             $this->registry[$name] = [];
         }
-        
+
         $this->context = $name;
 
         return $this;
