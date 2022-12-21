@@ -3,8 +3,8 @@
 namespace Utopia\Tests;
 
 use ArrayObject;
-use Utopia\Registry\Registry;
 use PHPUnit\Framework\TestCase;
+use Utopia\Registry\Registry;
 
 class RegistryTest extends TestCase
 {
@@ -23,7 +23,8 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGet() {
+    public function testGet()
+    {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
         });
@@ -35,7 +36,8 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSet() {
+    public function testSet()
+    {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
         });
@@ -56,7 +58,8 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGetFresh() {
+    public function testGetFresh()
+    {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
         });
@@ -66,7 +69,8 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSetFresh() {
+    public function testSetFresh()
+    {
         $this->registry->set('fresh', function () {
             return microtime();
         }, true);
