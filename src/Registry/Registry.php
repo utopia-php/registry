@@ -16,14 +16,14 @@ class Registry
     /**
      * List of all fresh resources
      *
-     * @var array<bool>
+     * @var array<string, bool>
      */
     protected array $fresh = [];
 
     /**
      * List of all connections
      *
-     * @var array<mixed>
+     * @var array<string, mixed>
      */
     protected array $registry = [
         'default' => [],
@@ -59,17 +59,6 @@ class Registry
     }
 
     /**
-     * Check if connection exists
-     *
-     * @param  string  $name
-     * @return bool
-     */
-    public function has(string $name)
-    {
-        return \array_key_exists($name, $this->callbacks);
-    }
-
-    /**
      * If connection has been created returns it, otherwise create and than return it
      *
      * @param  string  $name
@@ -88,6 +77,17 @@ class Registry
         }
 
         return $this->registry[$this->context][$name];
+    }
+
+    /**
+     * Check if connection exists
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    public function has(string $name): bool
+    {
+        return \array_key_exists($name, $this->callbacks);
     }
 
     /**
