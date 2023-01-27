@@ -28,7 +28,7 @@ class Registry
     protected array $registry = [
         'default' => [],
     ];
-    
+
     /**
      * Current context
      *
@@ -61,7 +61,7 @@ class Registry
     /**
      * Check if connection exists
      *
-     * @param string $name
+     * @param  string  $name
      * @return bool
      */
     public function has(string $name)
@@ -103,8 +103,8 @@ class Registry
 
     /**
      * Set the current context
-     * 
-     * @param string $name
+     *
+     * @param  string  $name
      * @return self
      */
     public function context(string $name)

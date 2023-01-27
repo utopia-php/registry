@@ -32,7 +32,7 @@ class RegistryTest extends TestCase
 
         $this->assertCount(2, $this->registry->get('array'));
     }
-  
+
     /**
      * @throws \Exception
      */
