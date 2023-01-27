@@ -46,7 +46,7 @@ class Registry
      *
      * @throws Exception
      */
-    public function set(string $name, callable $callback, bool $fresh = false)
+    public function set(string $name, callable $callback, bool $fresh = false): self
     {
         if (\array_key_exists($name, $this->registry[$this->context])) {
             unset($this->registry[$this->context][$name]);
@@ -67,7 +67,7 @@ class Registry
      *
      * @throws Exception
      */
-    public function get(string $name, bool $fresh = false)
+    public function get(string $name, bool $fresh = false): mixed
     {
         if (! \array_key_exists($name, $this->registry[$this->context]) || $fresh || $this->fresh[$name]) {
             if (! \array_key_exists($name, $this->callbacks)) {
@@ -96,7 +96,7 @@ class Registry
      * @param  string  $name
      * @return self
      */
-    public function context(string $name)
+    public function context(string $name): self
     {
         if (! array_key_exists($name, $this->registry)) {
             $this->registry[$name] = [];
