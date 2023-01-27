@@ -23,7 +23,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGet()
+    public function testGet(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -36,7 +36,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSet()
+    public function testSet(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -58,7 +58,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGetFresh()
+    public function testGetFresh(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -69,7 +69,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSetFresh()
+    public function testSetFresh(): void
     {
         $this->registry->set('fresh', function () {
             return microtime();

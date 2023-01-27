@@ -91,17 +91,6 @@ class Registry
     }
 
     /**
-     * Check if connection exists
-     *
-     * @param  string  $name
-     * @return bool
-     */
-    public function has(string $name): bool
-    {
-        return \array_key_exists($name, $this->callbacks);
-    }
-
-    /**
      * Set the current context
      *
      * @param  string  $name
