@@ -23,7 +23,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGet()
+    public function testGet(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -36,7 +36,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSet()
+    public function testSet(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -47,7 +47,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testHas()
+    public function testHas(): void
     {
         $this->registry->set('item', function () {
             return ['test'];
@@ -58,7 +58,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGetFresh()
+    public function testGetFresh(): void
     {
         $this->registry->set('array', function () {
             return new ArrayObject(['test']);
@@ -69,7 +69,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSetFresh()
+    public function testSetFresh(): void
     {
         $this->registry->set('fresh', function () {
             return microtime();
@@ -90,7 +90,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGetCaching()
+    public function testGetCaching(): void
     {
         $this->registry->set('time', function () {
             return microtime();
@@ -105,7 +105,7 @@ class RegistryTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testContextSwitching()
+    public function testContextSwitching(): void
     {
         $this->registry->set('time', function () {
             return microtime();
