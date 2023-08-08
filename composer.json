@@ -8,6 +8,7 @@
         "psr-4": {"Utopia\\Registry\\": "src/Registry"}
     },
     "scripts": {
+        "test": "./vendor/bin/phpunit --configuration phpunit.xml",
         "check": "./vendor/bin/phpstan analyse -l 7 src tests",
         "lint": "./vendor/bin/pint --test",
         "format": "./vendor/bin/pint"
